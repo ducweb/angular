@@ -1,0 +1,63 @@
+<table class="table table-bordered border border-primary">
+      <caption align="top" class="bg-warning p-1 fw-bold">DANH SÁCH DỰ ÁN</caption>
+
+      <tr>
+         <th> id </th>
+         <th> Tên dự án </th>
+         <th> ngày start </th>
+         <th > Tiền </th>
+         <th> Leader </th>
+         <th> Thành viên </th>
+      </tr>
+
+      <!-- <tr *ngFor="let da of list_du_an">
+         <td class="p-1"> {{da.id}} </td>
+         <td> {{da.ten_du_an}} </td>
+         <td> {{da.ngay_start|date:'dd/mm/yyyy'}} </td>
+         <td class="text-end p-1" > {{da.tien | number }} VNĐ </td>
+      </tr> -->
+      <tr *ngFor="let duan of list_du_an">
+        <th> {{ duan.id }}</th>
+        <th> {{ duan.ten_du_an }}</th>
+        <th>{{ duan.ngay_start|date:'dd/mm/yyyy' }}</th>
+        <th>{{ duan.tien }}</th>
+        <th>{{ duan.leader }}</th>
+        <th>{{ duan.thanh_vien }}</th>
+        <button (click)="xoaDuAn(duan.id)" class="btn btn-danger">Xóa</button>
+        <button (click)="showEditForm(duan)" class="btn btn-danger"><a [routerLink]="['/du_an/sua/', duan.id]">Sửa</a></button>
+      </tr>
+
+<!-- <tr>
+  <ul>
+    <li *ngFor="let duan of list_du_an">
+      {{ duan.ten_du_an }} - {{ duan.ngay_start }} - {{ duan.tien }} - {{ duan.leader }} - {{ duan.thanh_vien }}
+      <button (click)="xoaDuAn(duan.id)" class="btn btn-danger">Xóa</button>
+    </li>
+  </ul>
+</tr> -->
+</table>
+
+<!-- <div *ngIf="isEditFormVisible">
+  <h2>Sửa Dự Án</h2>
+  <form (ngSubmit)="xuly()">
+    <label for="ten_du_an">Tên Dự Án:</label>
+    <input id="ten_du_an" [(ngModel)]="data.ten_du_an" name="ten_du_an" required>
+
+    <label for="ngay_start">Ngày Bắt Đầu:</label>
+    <input id="ngay_start" [(ngModel)]="data.ngay_start" name="ngay_start" required>
+
+    <label for="tien">Tiền:</label>
+    <input id="tien" [(ngModel)]="data.tien" name="tien" required>
+
+    <label for="leader">Leader:</label>
+    <select id="leader" [(ngModel)]="data.leader" name="leader" required>
+      <option *ngFor="let nv of listNhanVien" [value]="nv.id">{{ nv.ten_nhan_vien }}</option>
+    </select>
+
+    <label for="thanh_vien">Thành Viên:</label>
+    <input id="thanh_vien" [(ngModel)]="data.thanh_vien" name="thanh_vien" required>
+
+    <button type="submit">Lưu</button>
+    <button type="button" (click)="hideEditForm()">Hủy</button>
+  </form>
+</div> -->

@@ -1,0 +1,21 @@
+table
+<table class="table table-bordered border border-primary">
+    <caption align="top" class="bg-wraning p-1 fw-bolder">
+      DANH SÁCH NHÂN VIÊN
+    </caption>
+    <tr>
+        <th class="p-1 px-2"> id </th>
+        <th> Họ tên</th>
+        <th> Phái </th>
+        <th class=" text-end p-1 px-2 "> Khu vực </th>
+    </tr>
+
+    <tr *ngFor="let nv of list_nhan_vien">
+      <td class="p-1 px-2"> {{nv.id}} </td>
+      <td> {{nv.ho}} {{nv.ten}} </td>
+      <td> {{nv.ngay_sinh | date :" dd/mm/yyyy "}}  </td>
+      <td> {{nv.phai == true? "Nam":"Nữ" }} </td>
+      <td class="text-end p-1 px-2"> {{nv.khu_vuc}} </td>
+    </tr>
+
+</table>
